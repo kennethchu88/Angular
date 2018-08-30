@@ -12,6 +12,9 @@ export class DeveloperInfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  developers = [];
+  
+
   removeCard(){
   	console.log(this);
   }

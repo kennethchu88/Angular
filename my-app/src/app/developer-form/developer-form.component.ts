@@ -15,9 +15,17 @@ export class DeveloperFormComponent implements OnInit {
   public name;
   public description;
 
+  public developer = 
+  {
+    name: "",
+    description: ""
+  }
+
+
   onSubmit() {
-  	console.log(this.name);
-  	console.log(this.description);
+
+  	console.log(this.developer.name);
+  	console.log(this.developer.description);
   }
 
 }
