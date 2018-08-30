@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-developer-form',
@@ -12,20 +12,17 @@ export class DeveloperFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public name;
-  public description;
-
   public developer = 
   {
     name: "",
     description: ""
   }
 
+  @Output() messageEvent = new EventEmitter<string>();
 
   onSubmit() {
-
-  	console.log(this.developer.name);
-  	console.log(this.developer.description);
+    this.messageEvent.emit(this.developer);
+    this.developer = Object.assign({}, this.developer);
   }
 
 }

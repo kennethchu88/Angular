@@ -1,3 +1,3 @@
-<app-developer-info></app-developer-info>
+<app-developer-info [developerInfo]="message"></app-developer-info>
 <hr>
-<app-developer-form></app-developer-form>
+<app-developer-form (messageEvent)="receiveMessage($event)"></app-developer-form>

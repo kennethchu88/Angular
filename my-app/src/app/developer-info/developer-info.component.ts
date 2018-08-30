@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-developer-info',
@@ -13,10 +13,28 @@ export class DeveloperInfoComponent implements OnInit {
   }
 
   developers = [];
-  
 
-  removeCard(){
-  	console.log(this);
+  @Input() developerInfo: string;
+
+  ngOnChanges(changes){
+  	console.log(changes);
+  	if (changes.developerInfo.firstChange === false){
+  		this.addCard();
+  	}
+  }
+
+  removeCard(index){
+
+  	this.developers.splice(index,1);
+  	this.developers = Object.assign([], this.developers);
+
+  }
+
+  addCard(){
+  	this.developers.push(this.developerInfo);
+  	this.developers = Object.assign([], this.developers);
+  	console.log(this.developers);
+
   }
 
 }

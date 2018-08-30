@@ -1,15 +1,19 @@
-<div class="card" style="width: 18rem;">
-	<h5 class="card-header">
-		Developer 
-		<button (click)="removeCard()" type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</h5>
+<div class="card-group">
+	<div *ngFor="let d of developers; let i = index">
+		<div class="card" style="width: 18rem;">
+			<h5 class="card-header">
+				Developer 
+				<button (click)="removeCard(i)" type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h5>
 
-	<div class="card-body">
+			<div class="card-body">
 
-		<h5 class="card-title"><b>Name:</b> Nobody</h5>
-		<h5 class="card-subtitle mb-2"><b>Description:</b></h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<h5 class="card-title"><b>Name:</b> {{d.name}}</h5>
+				<h5 class="card-subtitle mb-2"><b>Description:</b></h5>
+				<p class="card-text">{{d.description}}</p>
+			</div>
+		</div>
 	</div>
 </div>
