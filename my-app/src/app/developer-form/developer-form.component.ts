@@ -18,7 +18,7 @@ export class DeveloperFormComponent implements OnInit {
     description: ""
   }
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() messageEvent = new EventEmitter<Object>();
 
   onSubmit() {
     this.messageEvent.emit(this.developer);

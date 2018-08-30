@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { DeveloperFormComponent } from "../developer-form/developer-form.component";
 
 @Component({
@@ -10,6 +10,9 @@ export class DeveloperComponent implements OnInit {
 
 
   constructor() { }
+
+  ngOnInit() {
+  }
 
   public message: string;
 
