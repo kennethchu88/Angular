@@ -1,0 +1,12 @@
+
+<div *ngFor="let row of board; index as i" class="row h-25">
+	<div *ngFor="let col of row; index as j" (click)="insert(i,j)" class="col-md-4 box">
+		{{col}}
+	</div>
+</div>
+<h5>
+	{{message}}
+</h5>
+<div>
+	<input (click)="reset()" class="btn btn-primary" type="button" value="New game">
+</div>

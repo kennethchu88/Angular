@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-md-6">
+		<div *ngIf="p1 === 1 && show">Rock</div>
+		<div *ngIf="p1 === 2 && show">Paper</div>
+		<div *ngIf="p1 === 3 && show">Scissors</div>
+	</div>
+	<div class="col-md-6">
+		<div *ngIf="p2 === 1 && show">Rock</div>
+		<div *ngIf="p2 === 2 && show">Paper</div>
+		<div *ngIf="p2 === 3 && show">Scissors</div>
+	</div>
+</div>
+<h5>
+	{{msg}}
+</h5>
+<input (click)="reset()" class="btn btn-primary" type="button" value="New game">
