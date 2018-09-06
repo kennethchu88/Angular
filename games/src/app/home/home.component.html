@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<div>
+	<h5> Enter Player 1:</h5>
+	<input [(ngModel)]="p1" type="text" name="p1" placeholder="Player 1">
+</div>
+
+<div>
+	<h5> Enter Player 2:</h5>
+	<input [(ngModel)]="p2" type="text" name="p2" placeholder="Player 2">
+</div>
+
+<input (click)="set()" type="button" name="setName" value="Set" class="btn btn-primary">

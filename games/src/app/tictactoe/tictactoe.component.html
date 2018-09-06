@@ -1,3 +1,6 @@
+<h4 *ngIf="!player"> Player 1 turn... </h4>
+<h4 *ngIf="player"> Player 2 turn... </h4>
+	
 
 <div *ngFor="let row of board; index as i" class="row h-25">
 	<div *ngFor="let col of row; index as j" (click)="insert(i,j)" class="col-md-4 box">

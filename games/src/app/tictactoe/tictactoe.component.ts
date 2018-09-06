@@ -20,7 +20,6 @@ export class TictactoeComponent implements OnInit {
 		this.turn = 1;
 		this.message = "Game in progress...";
 		this.player = !this.player;
-		console.log(this.player);
 	}
 
 	checkHorizontal(x:string, board:string[][]){

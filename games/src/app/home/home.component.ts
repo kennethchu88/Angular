@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScoreService } from '../services/score.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+	p1 : string = "";
+	p2 : string = "";
+
+  constructor(private scoreService:ScoreService) { }
 
   ngOnInit() {
+  }
+
+  set(){
+  	this.scoreService.setP1Name(this.p1);
+  	this.scoreService.setP2Name(this.p2);
   }
 
 }

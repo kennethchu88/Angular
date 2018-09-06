@@ -1,14 +1,17 @@
 <div class="row h-25 box">
-	<div class="col-md-3">
+	<div class="col-md-2">
 		{{p1}}
 	</div>
 	<div class="col-md-3">
-		Player 1
+		{{p1Name}}
+	</div>
+	<div class="col-md-2">
+		<input (click)="reset()" type="button" name="Reset" class="btn btn-primary" value="Reset Score">
 	</div>
 	<div class="col-md-3">
-		Player 2
+		{{p2Name}}
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-2">
 		{{p2}}
 	</div>
 </div>

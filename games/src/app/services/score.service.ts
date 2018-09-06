@@ -9,6 +9,9 @@ export class ScoreService {
 
 	constructor() { }
 
+	p1Name: string;
+	p2Name: string;
+
 	player1 = 0;
 	player2 = 0;
 
@@ -26,7 +29,24 @@ export class ScoreService {
 	}
 
 	getScore():Observable<any>{
-		return of({"p1":this.player1, "p2": this.player2});
+		var data = {"p1":this.player1, "p2": this.player2};
+		return of(data);
+	}
+
+	setP1Name(name:string){
+		this.p1Name = name;
+	}
+
+	setP2Name(name:string){
+		this.p2Name = name;
+	}
+
+	getP1Name(){
+		return this.p1Name;
+	}
+
+	getP2Name(){
+		return this.p2Name;
 	}
 
 }

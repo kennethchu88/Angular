@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { ScoreService } from '../services/score.service';
 
 @Component({
 	selector: 'app-rps',
@@ -7,7 +8,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class RpsComponent implements OnInit {
 
-	constructor() { }
+	constructor(private scoreService: ScoreService) { }
 
 	p1 : number;
 	p2 : number;
@@ -56,8 +57,11 @@ export class RpsComponent implements OnInit {
 				this.msg = "Tie game!";
 			} else if ((this.p1 === 1 && this.p2 === 3) || (this.p1 === 2 && this.p2 === 1) || (this.p1 === 3 && this.p2 === 2)){
 				this.msg = "Player 1 wins!";
+				this.scoreService.updateP1Score();
+
 			} else {
 				this.msg = "Player 2 wins!";
+				this.scoreService.updateP2Score();
 			}
 		}
 	}
