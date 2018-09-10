@@ -11,6 +11,7 @@ import { RpsComponent } from './rps/rps.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScoreService } from './services/score.service';
 import { ApiComponent } from './api/api.component';
+import { TogetherjsComponent } from './togetherjs/togetherjs.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ApiComponent } from './api/api.component';
     HomeComponent,
     RpsComponent,
     ScoreboardComponent,
-    ApiComponent
+    ApiComponent,
+    TogetherjsComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import {HomeComponent} from './home/home.component';
 import {TictactoeComponent} from './tictactoe/tictactoe.component';
 import {RpsComponent} from './rps/rps.component';
+import {TogetherjsComponent} from './togetherjs/togetherjs.component';
+
 
 
 const routes: Routes = [
@@ -23,6 +25,10 @@ const routes: Routes = [
 {
   path: 'rps',
   component: RpsComponent
+},
+{
+  path: 'togetherjs',
+  component: TogetherjsComponent
 }
 ];
 

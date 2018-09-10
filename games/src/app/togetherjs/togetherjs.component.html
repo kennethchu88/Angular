@@ -1,0 +1,14 @@
+<div class="row">
+	<button class="btn btn-primary" onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+	<button class="btn btn-primary" (click)="clear()"> Clear </button>
+</div>
+<div class="row">
+	<div class="col-md-11">
+		<canvas (mousedown)="start($event)" (mousemove)="move($event)" (mouseup)="end($event)" #myCanvas width="1000" height="1000"
+		style="border:1px solid #c3c3c3;">
+		Your browser does not support the canvas element.
+		</canvas>
+	</div>
+
+</div>
+
