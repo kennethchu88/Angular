@@ -12,6 +12,7 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScoreService } from './services/score.service';
 import { ApiComponent } from './api/api.component';
 import { TogetherjsComponent } from './togetherjs/togetherjs.component';
+import { PixijsComponent } from './pixijs/pixijs.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TogetherjsComponent } from './togetherjs/togetherjs.component';
     RpsComponent,
     ScoreboardComponent,
     ApiComponent,
-    TogetherjsComponent
+    TogetherjsComponent,
+    PixijsComponent
   ],
   imports: [
     BrowserModule,

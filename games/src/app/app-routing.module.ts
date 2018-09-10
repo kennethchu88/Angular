@@ -5,6 +5,8 @@ import {HomeComponent} from './home/home.component';
 import {TictactoeComponent} from './tictactoe/tictactoe.component';
 import {RpsComponent} from './rps/rps.component';
 import {TogetherjsComponent} from './togetherjs/togetherjs.component';
+import {PixijsComponent} from './pixijs/pixijs.component';
+
 
 
 
@@ -29,6 +31,10 @@ const routes: Routes = [
 {
   path: 'togetherjs',
   component: TogetherjsComponent
+},
+{
+  path: 'pixijs',
+  component: PixijsComponent
 }
 ];
 

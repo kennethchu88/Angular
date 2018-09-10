@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Games</title>
-  <base href="/">
+	<meta charset="utf-8">
+	<title>Games</title>
+	<base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://togetherjs.com/togetherjs-min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<script src="https://togetherjs.com/togetherjs-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.2/pixi.js"></script>
 
+	<script>
+		if (global === undefined) {
+			var global = window;
+		}
+	</script>
 </head>
 <body>
-  <app-root></app-root>
+	<app-root></app-root>
 </body>
 </html>
