@@ -21,7 +21,7 @@ export class CodemirrorComponent implements OnInit {
 
 		this.editor = CodeMirror.fromTextArea(this.code.nativeElement, {
 			lineNumbers: true,
-			mode:  "html"
+			mode:  "javascript"
 		});
 	}
 
@@ -29,6 +29,11 @@ export class CodemirrorComponent implements OnInit {
 		this.editor.save();
 		var code2 = this.code.nativeElement.value;
 		this.result.nativeElement.srcdoc = code2;
+	}
+
+	changeMode(newMode){
+		this.editor.setOption("mode", newMode);
+		console.log(this.editor);
 	}
 
 }

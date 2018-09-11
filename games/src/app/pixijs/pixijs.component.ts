@@ -17,7 +17,7 @@ export class PixijsComponent implements OnInit {
 	ngOnInit() {
 
 		this.app = new PIXI.Application({ 
-			width: 500, 
+			width: 1000, 
 			height: 500,                       
 			antialias: true, 
 			transparent: true, 
