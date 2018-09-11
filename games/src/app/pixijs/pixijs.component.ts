@@ -20,27 +20,24 @@ export class PixijsComponent implements OnInit {
 			width: 500, 
 			height: 500,                       
 			antialias: true, 
-			transparent: false, 
+			transparent: true, 
 			resolution: 1
 		}
 		);
-		console.log(this.app);
 		this.canvas.nativeElement.appendChild(this.app.view);
-		console.log(this.app.stage);
 
-		PIXI.loader
-		.add("assets/stickman.png")
-		.load(this.setup(this.app));
+		let stickman = new PIXI.Sprite.fromImage("../assets/stickman.png");
+		stickman.width = 50;
+		stickman.height = 50;
+		this.app.stage.addChild(stickman);
+
+		this.app.ticker.add(delta => gameLoop(delta));
+		function gameLoop(delta){
+			stickman.x += 1 + delta;
+		}
 
 
-	}
-
-	setup(app){
-		let stickman = new PIXI.Sprite(PIXI.loader.resources["assets/stickman.png"].texture);
-		console.log(app);
-		app.stage.addChild(stickman);
-		//this.app = app;
-		console.log(this.app);
 	}
 
 }
+

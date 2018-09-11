@@ -13,6 +13,7 @@ import { ScoreService } from './services/score.service';
 import { ApiComponent } from './api/api.component';
 import { TogetherjsComponent } from './togetherjs/togetherjs.component';
 import { PixijsComponent } from './pixijs/pixijs.component';
+import { CodemirrorComponent } from './codemirror/codemirror.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PixijsComponent } from './pixijs/pixijs.component';
     ScoreboardComponent,
     ApiComponent,
     TogetherjsComponent,
-    PixijsComponent
+    PixijsComponent,
+    CodemirrorComponent
   ],
   imports: [
     BrowserModule,

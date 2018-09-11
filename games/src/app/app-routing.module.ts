@@ -6,6 +6,7 @@ import {TictactoeComponent} from './tictactoe/tictactoe.component';
 import {RpsComponent} from './rps/rps.component';
 import {TogetherjsComponent} from './togetherjs/togetherjs.component';
 import {PixijsComponent} from './pixijs/pixijs.component';
+import {CodemirrorComponent} from './codemirror/codemirror.component';
 
 
 
@@ -35,6 +36,10 @@ const routes: Routes = [
 {
   path: 'pixijs',
   component: PixijsComponent
+},
+{
+  path: 'codemirror',
+  component: CodemirrorComponent
 }
 ];
 
