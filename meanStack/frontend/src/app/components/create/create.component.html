@@ -1,0 +1,40 @@
+<div>
+	<br>
+	<h3>Create A New Issue</h3>
+
+	<br>
+	<form [formGroup]="createForm" class="create-form">
+		<div class="row form-group"> 
+			<label for="example-text-input" class="col-2 col-form-label">Title</label>
+			<div class="col-10">
+				<input class="form-control" placeholder="Issue Title" formControlName="title" #title>
+			</div>
+		</div>
+		<div class="row form-group"> 
+			<label for="example-text-input" class="col-2 col-form-label">Responsible</label>
+			<div class="col-10">
+				<input class="form-control" placeholder="Responsible" formControlName="responsible" #responsible>
+			</div>
+		</div>
+		<div class="row form-group"> 
+			<label for="example-text-input" class="col-2 col-form-label">Description</label>
+			<div class="col-10">
+				<textarea class="form-control" placeholder="Description" formControlName="description" #description></textarea>
+			</div>
+		</div>
+		<div class="row form-group"> 
+			<label for="example-text-input" class="col-2 col-form-label">Severity</label>
+			<div class="col-10">
+				<select class="form-control" placeholder="Severity" formControlName="severity" #severity>
+					<option disabled selected value> -- Select an option -- </option>
+					<option value="Low">Low</option>
+					<option value="Medium">Medium</option>
+					<option value="High">High</option>
+				</select>
+			</div>
+		</div>
+		<br><br>
+		<button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+		<button type="submit" (click)="addIssue(title.value, responsible.value, description.value, severity.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+	</form>
+</div>
