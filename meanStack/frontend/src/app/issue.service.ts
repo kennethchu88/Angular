@@ -14,6 +14,9 @@ export class IssueService {
   getIssueById(id) {
     return this.http.get(`${this.uri}/issues/${id}`);
   }
+  getIssueByPage(page){
+    return this.http.get(`${this.uri}/issues/page/${page}`);
+  }
   addIssue(title, responsible, description, severity) {
     const issue = {
       title: title,

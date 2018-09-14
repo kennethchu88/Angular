@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 var uri = 'mongodb+srv://admin:admin@cluster0-i18ft.mongodb.net/test?retryWrites=true';
 mongoose.connect(uri, { useNewUrlParser: true }, function(err, client) {
    // perform actions on the collection object
+   // client.collection("issues").deleteMany();
    if (err) client.close();
 });
 const connection = mongoose.connection;
@@ -30,6 +31,19 @@ router.route('/issues').get((req, res) => {
             res.json(issues);
     });
 });
+
+router.route('/issues/page/:page').get((req,res) => {
+
+    var query = Issue.find().sort('id').skip(parseInt(req.params.page)).limit(10);
+
+    query.exec(function(err, results) { 
+        if (err)
+            console.log(err);
+        else
+            res.json(results);
+    });
+
+})
 
 router.route('/issues/:id').get((req, res) => {
     Issue.findById(req.params.id, (err, issue) => {
@@ -56,8 +70,9 @@ router.route('/issues/addAll').post((req, res) => {
     issues.forEach(function(e){
         let issue = new Issue(e);
         issue.save()
+    });
+    res.status(200).json({'issue': 'Added successfully'});
 
-    })
 
 });
 
@@ -82,15 +97,6 @@ router.route('/issues/update/:id').post((req, res) => {
 
 router.route('/issues/delete/:id').get((req, res) => {
     Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
-        if (err)
-            res.json(err);
-        else
-            res.json('Removed successfully');
-    });
-});
-
-router.route('/issues/deleteAll').get((req, res) => {
-    Issue.deleteMany({}, (err, issue) => {
         if (err)
             res.json(err);
         else

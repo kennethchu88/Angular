@@ -26,4 +26,18 @@
 			</tr>
 		</tbody>
 	</table>
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+			<li (click)="getPage(currentPage - 1)" 
+			[ngClass]="{'disabled':(currentPage === 1)}" [ngStyle]="{'pointer-events': currentPage === 1 ? 'none' : 'auto' }" class="page-item">
+				<a class="page-link" >Previous</a>
+			</li>
+			<li (click)="getPage(page)" *ngFor="let page of count" class="page-item" 
+			[ngClass]="{'active':page === currentPage}"><a class="page-link" >{{page}}</a></li>
+			<li (click)="getPage(currentPage+1)" 
+			[ngClass]="{'disabled':(currentPage === count.length)}" [ngStyle]="{'pointer-events': currentPage === count.length ? 'none' : 'auto' }" class="page-item">
+				<a class="page-link">Next</a>
+			</li>
+		</ul>
+	</nav>
 </div>
