@@ -10,13 +10,17 @@ import { Issue } from '../../issue.model';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+
   id: String;
   issue: any = {};
   updateForm: FormGroup;
+  displaySuccess : boolean;
+
   constructor(private issueService: IssueService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
     this.createForm();
   }
   ngOnInit() {
+    this.displaySuccess = false;
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.issueService.getIssueById(this.id).subscribe(res => {
@@ -40,9 +44,7 @@ export class EditComponent implements OnInit {
   }
   updateIssue(title, responsible, description, severity, status) {
     this.issueService.updateIssue(this.id, title, responsible, description, severity, status).subscribe(() => {
-      this.snackBar.open('Issue updated successfully', 'OK', {
-        duration: 3000,
-      });
+      this.displaySuccess = true;
     });
   }
 }

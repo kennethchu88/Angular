@@ -30,7 +30,7 @@ export class ListComponent implements OnInit {
     console.log(this.table);
     this.fetchIssues();
     this.getPage(1);
-    this.table.DataTable();
+
   }
   fetchIssues() {
     this.issueService
