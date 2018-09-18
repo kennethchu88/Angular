@@ -39,4 +39,7 @@ export class IssueService {
   deleteIssue(id) {
     return this.http.get(`${this.uri}/issues/delete/${id}`);
   }
+  getSearchResults(query){
+    return this.http.get(`${this.uri}/issues/search/${query}`);
+  }
 }

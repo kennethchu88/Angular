@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { CreateComponent } from './components/create/create.component';
@@ -49,7 +50,7 @@ import { IssueService } from './issue.service';
     MatSnackBarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
   ],
   providers: [IssueService],
   bootstrap: [AppComponent]

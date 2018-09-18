@@ -104,6 +104,16 @@ router.route('/issues/delete/:id').get((req, res) => {
     });
 });
 
+router.route('/issues/search/:query').get((req, res) => {
+    Issue.find({
+        $or:[{title: {$regex: '.*' + req.params.query + '.*', $options:'i'}}, {responsible: {$regex: '.*' + req.params.query + '.*', $options:'i'}}]}, (err, issue) => {
+        if (err)
+            res.json(err);
+        else
+            res.status(200).json(issue);
+    });
+});
+
 app.use('/', router);
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 

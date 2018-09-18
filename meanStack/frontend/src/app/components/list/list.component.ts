@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { Issue } from '../../issue.model';
@@ -13,15 +13,24 @@ import { Location } from '@angular/common';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+
+  @ViewChild("table", {read: ElementRef}) table: ElementRef;
+  @ViewChild("searchValue", {read: ElementRef}) searchValue: ElementRef;
+
   issues: Issue[];
   displayedColumns = ['title', 'responsible', 'severity', 'status', 'actions'];
   count : number[] = [];
   currentPage : number;
+  toBeDeleted : any;
+  displayNav : boolean = true;
+  displayError: boolean = false;
 
   constructor(private issueService: IssueService, private router: Router, private snackBar: MatSnackBar, private location: Location) { }
   ngOnInit() {
+    console.log(this.table);
     this.fetchIssues();
     this.getPage(1);
+    this.table.DataTable();
   }
   fetchIssues() {
     this.issueService
@@ -37,11 +46,9 @@ export class ListComponent implements OnInit {
   editIssue(id) {
     this.router.navigate([`/edit/${id}`]);
   }
-  deleteIssue(id) {
+  deleteIssue() {
+    var id = this.toBeDeleted;
     this.issueService.deleteIssue(id).subscribe(() => {
-      this.snackBar.open('Issue deleted successfully', 'OK', {
-        duration: 3000,
-      });
       this.getPage(1);
     });
   }
@@ -52,4 +59,23 @@ export class ListComponent implements OnInit {
       this.currentPage = page;
     });
   }
+
+  search(query){
+    if(query.length < 3){
+      this.displayError = true;
+    } else {
+      this.displayError = false;
+      this.displayNav = false;
+      this.issueService.getSearchResults(query).subscribe((data: Issue[]) => {
+        this.issues = data;
+      })
+    }
+  }
+
+  clearSearch(){
+    this.searchValue.nativeElement.value = "";
+    this.getPage(1);
+    this.displayNav = true;
+  }
+
 }
